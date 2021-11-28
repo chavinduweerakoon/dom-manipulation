@@ -64,4 +64,15 @@ function gameOver(won, msg) {
   guessInput.style.borderColor = color;
   message.style.color = color;
   setMessage(msg);
+
+  //play again
+  guessBtn.value = "Play Again";
+  guessBtn.className += "play-again";
 }
+
+//play again event listener
+game.addEventListener("mousedown", function (e) {
+  if (e.target.className === "play-again") {
+    window.location.reload();
+  }
+});
