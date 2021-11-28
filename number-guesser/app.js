@@ -8,7 +8,7 @@
 //game values
 let min = 1,
   max = 10,
-  winningNum = 2,
+  winningNum = assignRandomNum(min, max),
   guessesLeft = 3;
 
 //ui elements
@@ -76,3 +76,8 @@ game.addEventListener("mousedown", function (e) {
     window.location.reload();
   }
 });
+
+//random number
+function assignRandomNum(min, max) {
+  return Math.floor(Math.random() * (max - min + 1) + min);
+}
