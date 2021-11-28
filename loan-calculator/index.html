@@ -12,6 +12,12 @@
       integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
       crossorigin="anonymous"
     />
+    <style>
+      #loading,
+      #results {
+        display: none;
+      }
+    </style>
   </head>
   <body class="bg-dark">
     <div class="container">
@@ -22,20 +28,20 @@
             <form id="loan-form">
               <div class="form-group">
                 <div class="input-group">
-                  <span class="input-group-addon">$</span>
+                  <span class="input-group-addon p-2">$</span>
                   <input
                     type="number"
-                    class="form-control"
+                    class="form-control mb-3"
                     id="amount"
                     placeholder="Loan Amount"
                   />
                 </div>
                 <div class="form-group">
                   <div class="input-group">
-                    <span class="input-group-addon">$</span>
+                    <span class="input-group-addon p-2">$</span>
                     <input
                       type="number"
-                      class="form-control"
+                      class="form-control mb-3"
                       id="interest"
                       placeholder="Interest"
                     />
@@ -43,9 +49,10 @@
                 </div>
                 <div class="form-group">
                   <div class="input-group">
+                    <span class="input-group-addon p-2">#</span>
                     <input
                       type="number"
-                      class="form-control"
+                      class="form-control mb-3"
                       id="years"
                       placeholder="Years To Repay"
                     />
@@ -61,18 +68,18 @@
               </div>
             </form>
             <!-- Loader here -->
-            <!-- <div id="loading">
+            <div id="loading">
               <img src="img/loading.gif" />
-            </div> -->
+            </div>
             <!-- Results -->
-            <div class="results">
+            <div id="results" class="pt-4">
               <h5>Results</h5>
               <div class="form-group">
                 <div class="input-group">
-                  <span class="input-group-addon">Monthly Payment</span>
+                  <span class="input-group-addon p-1">Monthly Payment</span>
                   <input
                     type="number"
-                    class="form-control"
+                    class="form-control mb-3"
                     id="monthly-payment"
                     disabled
                   />
@@ -80,10 +87,10 @@
               </div>
               <div class="form-group">
                 <div class="input-group">
-                  <span class="input-group-addon">Total Payment</span>
+                  <span class="input-group-addon p-1">Total Payment</span>
                   <input
                     type="number"
-                    class="form-control"
+                    class="form-control mb-3"
                     id="total-payment"
                     disabled
                   />
@@ -91,7 +98,7 @@
               </div>
               <div class="form-group">
                 <div class="input-group">
-                  <span class="input-group-addon">Total Interest</span>
+                  <span class="input-group-addon p-1">Total Interest</span>
                   <input
                     type="number"
                     class="form-control"
