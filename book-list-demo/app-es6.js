@@ -51,6 +51,40 @@ class UI {
   }
 }
 
+//local storage class
+class Store {
+  static getBooks() {
+    let books;
+    if (localStorage.getItem("books") === null) {
+      books = [];
+    } else {
+      books = JSON.parse(localStorage.getItem("books"));
+    }
+    return books;
+  }
+
+  static displayBooks() {
+    const books = Store.getBooks();
+
+    books.forEach(function (book) {
+      const ui = new UI();
+
+      ui.addBookToList(book);
+    });
+  }
+
+  static addBook(book) {
+    const books = Store.getBooks();
+    books.push(book);
+    localStorage.setItem("books", JSON.stringify(books));
+  }
+
+  static removeBook() {}
+}
+
+//DOM load event
+document.addEventListener("DOMContentLoaded", Store.displayBooks());
+
 //event listener for add book
 document.getElementById("book-form").addEventListener("submit", function (e) {
   const title = document.getElementById("title").value;
@@ -65,6 +99,8 @@ document.getElementById("book-form").addEventListener("submit", function (e) {
     ui.showAlert("Please provide values for all feilds", "error");
   } else {
     ui.addBookToList(book);
+    //add to local storage
+    Store.addBook(book);
     ui.showAlert("Book Added successfully", "success");
     ui.clearFields();
   }
